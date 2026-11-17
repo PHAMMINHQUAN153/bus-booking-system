@@ -19,7 +19,11 @@ Hệ thống đặt vé xe khách từ TP. Hồ Chí Minh đi các tỉnh thành
 - [ ] Chọn ghế và đặt vé (chống đặt trùng ghế)
 - [ ] Thanh toán sandbox
 - [ ] Trang quản trị
+## Sơ đồ CSDL
 
+![ERD](docs/erd.png)
+
+Điểm thiết kế chính: ràng buộc unique `(trip_id, seat_id)` ở bảng `booking_seats` đảm bảo một ghế chỉ thuộc một vé trong cùng một chuyến, kể cả khi nhiều người đặt cùng lúc.
 ## Cách chạy
 
 1. Cài JDK 21 và SQL Server, tạo database `bus_booking`
