@@ -12,7 +12,7 @@ Hệ thống đặt vé xe khách từ TP. Hồ Chí Minh đi các tỉnh thành
 
 ## Tính năng dự kiến
 
-- [ ] Quản lý tuyến xe
+- [x] Quản lý tuyến xe
 - [ ] Quản lý xe và chuyến
 - [ ] Tìm kiếm chuyến theo điểm đi, điểm đến, ngày
 - [ ] Đăng ký / đăng nhập, phân quyền
@@ -24,6 +24,27 @@ Hệ thống đặt vé xe khách từ TP. Hồ Chí Minh đi các tỉnh thành
 ![ERD](docs/erd.png)
 
 Điểm thiết kế chính: ràng buộc unique `(trip_id, seat_id)` ở bảng `booking_seats` đảm bảo một ghế chỉ thuộc một vé trong cùng một chuyến, kể cả khi nhiều người đặt cùng lúc.
+## API hiện có
+
+| Phương thức | Đường dẫn | Mô tả |
+|---|---|---|
+| GET | `/api/routes` | Danh sách tuyến |
+| GET | `/api/routes/{id}` | Chi tiết một tuyến |
+| POST | `/api/routes` | Tạo tuyến mới |
+| PUT | `/api/routes/{id}` | Cập nhật tuyến |
+| DELETE | `/api/routes/{id}` | Xóa tuyến |
+
+Ví dụ tạo tuyến:
+
+```json
+{
+  "origin": "TP. Hồ Chí Minh",
+  "destination": "Đà Lạt",
+  "distanceKm": 300,
+  "durationMinutes": 420
+}
+```
+
 ## Cách chạy
 
 1. Cài JDK 21 và SQL Server, tạo database `bus_booking`
